@@ -35,8 +35,8 @@ class KMeansClustering(object):
             self.clusters[sim_to_center.index(mxvalue)].append(i)
     def update_centers(self):
         new_centers = []
-        len_cluster=len(cluster)
         for cluster in self.clusters:#for each cluster among k
+            len_cluster=len(cluster)
             new_center=dict()
             for ci in cluster:#for each index of vectors(dict)
             '''
@@ -48,6 +48,7 @@ class KMeansClustering(object):
         if new_centers==self.centers: # In no change case,
             return False
         else:
+            self.centers=new_centers
             return True
 
     def start(self):
